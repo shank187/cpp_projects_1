@@ -1,6 +1,7 @@
 #ifndef BUREAUCRAT
 #define BUREAUCRAT
 
+#include <ostream>
 #include <string>
 #include <exception>
 
@@ -24,12 +25,12 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat& other);
 		Bureaucrat& operator=(const Bureaucrat& other);
 		~Bureaucrat();
-		const std::string& get_name();
-		const int& get_grade();
+		const std::string& get_name() const;
+		const int& get_grade() const;
 		void increment_grade();
 		void decrement_grade();
 };
 
-
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
 
 #endif

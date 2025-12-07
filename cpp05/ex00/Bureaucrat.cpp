@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include <iostream>
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
@@ -54,14 +55,18 @@ void Bureaucrat::decrement_grade()
 	grade++;
 }
 
-const std::string& Bureaucrat::get_name()
+const std::string& Bureaucrat::get_name() const
 {
 	return name;
 }
 
-const int& Bureaucrat::get_grade()
+const int& Bureaucrat::get_grade() const
 {
 	return grade;
 }
 
-
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
+{
+	os << obj.get_name() << ", bureaucrat grade " << obj.get_grade() << "." << std::endl;
+	return os;
+}
